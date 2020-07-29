@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center"
+            style="padding-top: 100px; padding-bottom: 100px;">
+            <div class="col-md-6">
+                <div class="card">
+                    <!-- <img class="card-img-top" src="../assets/img/carousel/contBcg-3.jpeg" alt="Card image"> -->
+                    <div class="card-body">
+                        <form onsubmit="return calcBMI();">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="bmi-metric"
+                                                name="bmi-measure" onchange="measureBMI()" checked /> Metric
+                                            <label class="form-check-label" for="bmi-metric">
+                                                Metric
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="bmi-imperial"
+                                                name="bmi-measure" onchange="measureBMI()" /> Imperial
+
+                                            <label class="form-check-label" for="bmi-imperial">
+                                                Imperial
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0"></label>
+                                <div class="col-sm-8">
+                                    <input class="form-control input-sm" id="bmi-weight" type="number" min="1" max="635"
+                                        placeholder="Weight" required />
+
+                                </div>
+                                <label id="bmi-weight-unit" for="age">KG</label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0"></label>
+                                <div class="col-sm-8">
+                                    <input class="form-control  mb-2 mr-sm-2" id="bmi-height" type="number" min="54"
+                                        max="272" placeholder="Height" required />
+
+                                </div>
+                                <label id="bmi-height-unit" for="age">CM</label>
+                            </div>
+
+
+                            <input class="btn btn-primary btn-block" type="submit" value="Calculate BMI" />
+                            <a class="btn btn-primary btn-block" href="../index.html">Back</a>
+
+                            <br>
+                            <br>
+                            
+                            <div id="bmi-results"></div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="bmi.js"></script>
+    <script src="../assets/js/jquery/jquery-3.5.1.js"></script>
+    <script src="../assets/css/bootstrap/js/bootstrap.js"></script>
+
+    <script src="../assets/js/popper/popper.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALORIE Calculator</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="col-md-6">
+                <div class="card">
+                    <!-- <img class="card-img-top" src="../assets/img/card/img_0588.png" alt="Card image"> -->
+                    <div class="card-body">
+                        <p class="text-center"><b>Calorie Calculator</b></p>
+                        <form name="frm" action="" class='frms noborders'>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Age:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" name="age" id="age" maxlength="2"
+                                        onkeypress="return cknum(event,age)">
+                                </div>
+                                <label for="age">years</label>
+                            </div>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gen" id="gen" checked>
+                                            <label class="form-check-label" for="gen">
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gen" id="gen">
+                                            <label class="form-check-label" for="gen">
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Height:</label>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="foot" id="foot" onchange="hcon()">
+                                        <option value="1">1'</option>
+                                        <option value="2">2'</option>
+                                        <option value="3">3'</option>
+                                        <option value="4">4'</option>
+                                        <option value="5">5'</option>
+                                        <option value="6">6'</option>
+                                        <option value="7">7'</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="inch" id="inch" onchange="hcon()">
+                                        <option value="1">1"</option>
+                                        <option value="2">2"</option>
+                                        <option value="3">3"</option>
+                                        <option value="4">4"</option>
+                                        <option value="5">5"</option>
+                                        <option value="6">6"</option>
+                                        <option value="7">7"</option>
+                                        <option value="8">8"</option>
+                                        <option value="9">9"</option>
+                                        <option value="10">10"</option>
+                                        <option value="11">11"</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">CM:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" name="cen" id="cen" onkeyup="con(cen)">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Weight:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" name="weight" id="weight" maxlength="3"
+                                        onkeyup="isNumberKey(this.id)">
+                                    <select class="form-control" name="wtype" id="wtype">
+                                        <option value="kg">Kg</option>
+                                        <option value="pounds">Pounds</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Activeness:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="loa" id="loa">
+                                        <option value="1">Sedentary</option>
+                                        <option value="2">Light Active</option>
+                                        <option value="3">Moderately Active</option>
+                                        <option value="4">Very Active</option>
+                                        <option value="5">Extra Active</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <input class='btn btn-primary btn-block' type="button" value="Calculate Your Calorie" onclick="cc()">
+                            <a class="btn btn-primary btn-block" href="../index.html">Back</a>
+
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <p class="text-center"><b>Calorie Result</b></p>
+                            <p>Calorie Needed</p>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Weight:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="rc" style="font-size:13px;" size="15"
+                                        readonly>
+                                    <select class="form-control" name="caltype" id="caltype" onChange="convert()">
+                                        <option value="g">Grams</option>
+                                        <option value="kg">Kilograms</option>
+                                        <option value="pounds">Pounds</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+
+                            <div style="color: #3D366F; font-size:13px;"><p>You Must Intake The Following Daily</p></div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Fat:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="rf" style="font-size:13px;" readonly>
+
+                                </div>
+                                <label for="rf">per day</label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Protein:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="rp" style="font-size:13px;" readonly>
+
+                                </div>
+                                <label for="rp">per day</label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Carbohydrate:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="rh" style="font-size:13px;" readonly>
+
+                                </div>
+                                <label for="rh">per day</label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2 pt-0">Alcohol:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="ra" style="font-size:13px;" readonly>
+
+                                </div>
+                                <label for="ra">per day</label>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script src="calories.js"></script>
+    <script src="../assets/js/jquery/jquery-3.5.1.js"></script>
+    <script src="../assets/css/bootstrap/js/bootstrap.js"></script>
+
+    <script src="../assets/js/popper/popper.js"></script>
+</body>
+
+</html>
